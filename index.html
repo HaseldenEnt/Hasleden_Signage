@@ -1,22 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Haselden Signage</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            background-color: #000000; /* fallback background */
-        }
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haselden Teams Rooms Signage</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000000; /* solid black background */
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .clock {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #ffffff;
+      font-family: Segoe UI, Arial, sans-serif;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-    <img src="HLogo.jpg" alt="Haselden Signage">
+  <!-- Replace YOURIMAGE.jpg with your GitHub Pages image filename -->
+  <img src="HLogo.jpg" alt="Haselden Signage">
+  <div class="clock" id="clock">--:--</div>
+
+  <script>
+    // Simple clock for overlay
+    function updateClock() {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2,'0');
+      const mm = String(now.getMinutes()).padStart(2,'0');
+      document.getElementById('clock').textContent = hh + ':' + mm;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
